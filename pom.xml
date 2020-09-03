@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>rheem-platforms</artifactId>
-        <groupId>io.rheem.rheem</groupId>
-        <version>1.0.0-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>rheem-flink</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <groupId>io.rheem.rheem</groupId>
 
     <packaging>jar</packaging>
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <flink.version>1.7.1</flink.version>
+        <scala.compat.version>2.11</scala.compat.version>
+        <scala.version>2.11.8</scala.version>
+        <hadoop.version>2.6.0</hadoop.version>
     </properties>
 
     <dependencies>
@@ -33,10 +35,12 @@
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
+            <version>${hadoop.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs</artifactId>
+            <version>${hadoop.version}</version>
         </dependency>
         <!-- depencies of flink -->
         <dependency>
