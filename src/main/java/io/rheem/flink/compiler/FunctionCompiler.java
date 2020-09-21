@@ -76,12 +76,12 @@ public class FunctionCompiler {
         };
     }
 
-    public <T> FilterFunction<T> compile(PredicateDescriptor.SerializablePredicate<T> predicateDescriptor) {
+    public <T> FilterFunction<T> compile(FunctionDescriptor.SerializablePredicate<T> predicateDescriptor) {
         return t -> predicateDescriptor.test(t);
     }
 
 
-    public <T> OutputFormat<T> compile(ConsumerDescriptor.SerializableConsumer<T> consumerDescriptor) {
+    public <T> OutputFormat<T> compile(FunctionDescriptor.SerializableConsumer<T> consumerDescriptor) {
         return new OutputFormatConsumer<T>(consumerDescriptor);
     }
 

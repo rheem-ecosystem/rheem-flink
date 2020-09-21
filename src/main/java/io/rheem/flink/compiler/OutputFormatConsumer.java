@@ -1,5 +1,6 @@
 package io.rheem.flink.compiler;
 
+import io.rheem.core.function.FunctionDescriptor;
 import org.apache.flink.api.common.io.OutputFormat;
 import org.apache.flink.configuration.Configuration;
 import io.rheem.core.function.ConsumerDescriptor;
@@ -14,7 +15,7 @@ public class OutputFormatConsumer<T> implements OutputFormat<T>, Serializable {
 
     private ConsumerDescriptor.SerializableConsumer<T> tConsumer;
 
-    public OutputFormatConsumer(ConsumerDescriptor.SerializableConsumer<T> consumer) {
+    public OutputFormatConsumer(FunctionDescriptor.SerializableConsumer<T> consumer) {
         this.tConsumer = consumer;
     }
 

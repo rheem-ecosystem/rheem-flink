@@ -1,5 +1,6 @@
 package io.rheem.flink.operators;
 
+import io.rheem.core.function.FunctionDescriptor;
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.io.PrintingOutputFormat;
 import io.rheem.basic.operators.LocalCallbackSink;
@@ -30,7 +31,7 @@ public class FlinkLocalCallbackSink <Type extends Serializable> extends LocalCal
      * @param callback callback that is executed locally for each incoming data unit
      * @param type     type of the incoming elements
      */
-    public FlinkLocalCallbackSink(ConsumerDescriptor.SerializableConsumer<Type> callback, DataSetType type) {
+    public FlinkLocalCallbackSink(FunctionDescriptor.SerializableConsumer<Type> callback, DataSetType type) {
         super(callback, type);
     }
 

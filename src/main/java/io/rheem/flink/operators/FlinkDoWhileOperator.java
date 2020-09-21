@@ -1,5 +1,6 @@
 package io.rheem.flink.operators;
 
+import io.rheem.core.function.FunctionDescriptor;
 import org.apache.flink.api.common.aggregators.ConvergenceCriterion;
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.operators.IterativeDataSet;
@@ -40,7 +41,7 @@ public class FlinkDoWhileOperator<InputType, ConvergenceType>
      */
     public FlinkDoWhileOperator(DataSetType<InputType> inputType,
                                DataSetType<ConvergenceType> convergenceType,
-                               PredicateDescriptor.SerializablePredicate<Collection<ConvergenceType>> criterionPredicate,
+                               FunctionDescriptor.SerializablePredicate<Collection<ConvergenceType>> criterionPredicate,
                                Integer numExpectedIterations) {
         super(inputType, convergenceType, criterionPredicate, numExpectedIterations);
     }
