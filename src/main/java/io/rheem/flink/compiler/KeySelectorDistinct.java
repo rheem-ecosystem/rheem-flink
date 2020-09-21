@@ -18,7 +18,7 @@ public class KeySelectorDistinct<T> implements KeySelector<T, String>, Serializa
             ObjectOutputStream objStream = new ObjectOutputStream(b);
             objStream.writeObject(value);
             return Base64.getEncoder().encodeToString(b.toByteArray());
-        }finally {
+        }catch (Exception e){
             return "";
         }
     }

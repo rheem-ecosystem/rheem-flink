@@ -1,5 +1,6 @@
 package io.rheem.flink.operators;
 
+import io.rheem.core.api.exception.RheemException;
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.io.TextOutputFormat;
 import io.rheem.basic.operators.TextFileSink;
@@ -50,6 +51,11 @@ public class FlinkTextFileSink<Type> extends TextFileSink<Type> implements Flink
         final TextOutputFormat.TextFormatter<Type> fileOutputFormat = flinkExecutor.getCompiler().compileOutput(this.formattingDescriptor);
 
         inputDataset.writeAsFormattedText(this.textFileUrl, fileOutputFormat);
+        try {
+            flinkExecutor.fee.execute();
+        } catch (Exception e) {
+            throw new RheemException(e);
+        }
 
         return ExecutionOperator.modelEagerExecution(inputs, outputs, operatorContext);
     }
